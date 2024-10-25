@@ -56,4 +56,4 @@ ALTER TABLE produtos COMMENT = 'Tabela de informações de componentes';
 #ALTERANDO TABELA DE MAQUINAS
 ALTER TABLE produtos COMMENT = 'Tabela de informações de maquinas';
 
-drop schema EST_CASO_III;
+drop schema EST_CASO_III_DML;
