@@ -48,5 +48,5 @@ ALTER TABLE reservas DROP COLUMN reserva_cod;
 ALTER TABLE reservas MODIFY COLUMN passageiro_cpf varchar(12);
 ALTER TABLE reservas CHANGE COLUMN id_do_voo id_voo int;
 
-DROP SCHEMA EST_CASO_II_DML;
+DROP SCHEMA EST_CASO_II;
 
