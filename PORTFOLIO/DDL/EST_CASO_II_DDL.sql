@@ -82,3 +82,4 @@ constraint fk_id_voo FOREIGN KEY (id_do_voo)
 references voos(voo_id) #referenciando à chave estrangeira (voo id)
 );
 
+DROP SCHEMA EST_CASO_II_DDL;
