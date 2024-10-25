@@ -206,4 +206,4 @@ constraint fk_produ_pr FOREIGN KEY (produtos_prod)
 references produtos(cod_prod)
 );
 
-drop schema EST_CASO_III_DDL;
+drop schema EST_CASO_III;
