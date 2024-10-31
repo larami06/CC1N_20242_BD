@@ -26,17 +26,17 @@ constraint tipo_d_endereco FOREIGN KEY (tipo_end) references tipo_endereco(codti
 # representa os recursos específicos necessários para fabricar determinados produtos #
 create table if not exists recursos_espec(
 id_re int primary key,
-data_re date not null,
-descricao_re text not null
+quantnecess_re int not null,  #quantidade necessaria
+uni_re varchar(10) not null,
+tempouso_re date not null,
+horasmdo_re date not null  # horas de mao de obra
 );
 
 # garante que os materiais estejam disponíveis no momento certo 
 create table if not exists regist_supri(
 id_rs int primary key,
-quantnecess_rs int not null,  #quantidade necessaria
-uni_rs varchar(10) not null,
-tempouso_rs date not null,
-horasmdo_rs date not null  # horas de mao de obra
+data_rs date not null,
+descricao_rs text not null
 );
 
 # registra as manutenções realizadas nas máquinas e equipamentos
