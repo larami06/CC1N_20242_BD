@@ -1,3 +1,5 @@
+USE EST_CASO_IV;
+
 #MOSTRANDO A TABELA DE MODALIDADES E INCLUINDO VALORES
 SHOW COLUMNS FROM modalidades;
 INSERT INTO modalidades(modalidade_id, modalidade_nome, modalidade_desc, modalidade_capacidade)
