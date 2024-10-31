@@ -43,7 +43,7 @@ aeron_prefixo int primary key,
 aeron_anofabr date not null,
 aeron_fabricante varchar(45) not null,
 aeron_capacidade int not null,
-aeron_autonomia time not null
+aeron_autonomia varchar(30) not null
 );
 
 #criando a tabela funcionarios
