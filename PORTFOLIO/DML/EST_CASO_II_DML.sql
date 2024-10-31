@@ -1,3 +1,5 @@
+USE EST_CASO_II;
+
 # MOSTRANDO A COLUNA DE PASSAGEIROS E INSERINDO VALORES
 SHOW COLUMNS FROM passageiros;
 INSERT INTO passageiros(pass_cpf, pass_nome, pass_telefone, pass_rua, pass_numrua, pass_bairro, pass_cidade, pass_estado, pass_pais, pass_codpostal, pass_email)
