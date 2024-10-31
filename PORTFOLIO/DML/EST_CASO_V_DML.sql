@@ -1,3 +1,5 @@
+USE EST_CASO_V;
+
 #MOSTRANDO TABELA DE CLIENTES E INSERINDO VALORES
 SHOW columns FROM clientes;
 INSERT INTO clientes(clientes_cpf, clientes_nome, clientes_data_nasc, clientes_status_fidelidade, clientes_rua, clientes_ruanum,
