@@ -1,3 +1,5 @@
+USE EST_CASO_III;
+
 # MOSTRANDO A TABELA TIPO DE ENDEREÇO E INSERINDO DADOS
 SHOW COLUMNS FROM tipo_endereco;
 INSERT INTO tipo_endereco(codtipo_end, nome_tipoend)
