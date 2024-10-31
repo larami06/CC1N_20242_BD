@@ -28,8 +28,8 @@ create table if not exists recursos_espec(
 id_re int primary key,
 quantnecess_re int not null,  #quantidade necessaria
 uni_re varchar(10) not null,
-tempouso_re date not null,
-horasmdo_re date not null  # horas de mao de obra
+tempouso_re time not null,
+horasmdo_re time not null  # horas de mao de obra
 );
 
 # garante que os materiais estejam disponíveis no momento certo 
