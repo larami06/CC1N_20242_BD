@@ -1,51 +1,29 @@
+#MOSTRANDO A TABELA DE MODALIDADES E INCLUINDO VALORES
+SHOW COLUMNS FROM modalidades;
+INSERT INTO modalidades(modalidade_id, modalidade_nome, modalidade_desc, modalidade_capacidade)
+VALUES('03', 'Treinamento Funcional', 'Tipo de exercício que trabalha movimentos naturais do corpo, como pular, correr, agachar, empurrar e levantar. Ele utiliza equipamentos variados, como cordas e elásticos, proporcionando um treino dinâmico.', '30');
 
-#ALTERANDO TABELA DE MODALIDADES
-ALTER TABLE modalidades COMMENT = 'Tabela de informações das modalidades';
-ALTER TABLE modalidades ADD modalidade_tipo varchar(40) not null;
-ALTER TABLE modalidades MODIFY COLUMN modalidade_desc varchar(20) not null;
-ALTER TABLE modalidades CHANGE COLUMN modalidade_capacidade modalidade_capacid int not null;
-ALTER TABLE modalidades DROP COLUMN modalidade_nome;
+#MOSTRANDO A TABELA DE ALUNOS E INCLUINDO VALORES
+SHOW COLUMNS FROM alunos;
+INSERT INTO alunos(aluno_cpf, aluno_nome, aluno_datanasc, aluno_cep, aluno_rua, aluno_numrua, aluno_bairro, aluno_cidade, aluno_estado,aluno_pais, modalidade_interesse)
+VALUES('808266051', 'Vicente Francisco Barros', '1995-09-18', '66030-145','Rua Vila Oladir', '773', 'Jurunas', 'Belém', 'PA', 'Brasil', '03');
 
+#MOSTRANDO A TABELA DE INSTRUTORES E INCLUINDO VALORES
+SHOW COLUMNS FROM instrutores;
+INSERT INTO instrutores(instrutor_cpf, instrutor_nome, instrutor_datanasc, instrutor_cep, modalidades_ensina)
+VALUES('274558003', 'Ayla Esther Gabriela Fernandes', '1979-04-26', '91040-030', '03');
 
-#ALTERANDO TABELA DE ALUNOS
-ALTER TABLE alunos COMMENT = 'Tabela de informações dos alunos';
-ALTER TABLE alunos ADD alunos_id varchar(15) not null;
-ALTER TABLE alunos MODIFY COLUMN aluno_datanasc datetime not null;
-ALTER TABLE alunos CHANGE COLUMN aluno_pais pais_aluno varchar(30) not null;
-ALTER TABLE alunos DROP COLUMN aluno_rua;
- 
+#MOSTRANDO A TABELA DE PLANOS DE TREINAMENTO E INCLUINDO VALORES
+SHOW COLUMNS FROM plano_treinamento;
+INSERT INTO plano_treinamento(plano_id, descricao_plano, data_criacao_plano, data_atualizacao_plano, cpf_aluno, cpf_instrutor)
+VALUES('112', 'Aumentar a resistência, força e coordenação, promovendo emagrecimento e melhorias na capacidade cardiovascular.', '2024-10-10', '2024-11-10', '808266051', '274558003');
 
-#ALTERANDO TABELA DE INSTRUTORES
-ALTER TABLE instrutores COMMENT = 'Tabela de informações dos instrutores';
-ALTER TABLE instrutores ADD instrutor_sobrenome varchar(40) not null;
-ALTER TABLE instrutores MODIFY COLUMN instrutor_nome varchar(20) not null;
-ALTER TABLE instrutores CHANGE COLUMN instrutor_datanasc datanasc_instrutor int not null;
-ALTER TABLE instrutores DROP COLUMN instrutor_cep;
+#MOSTRANDO A TABELA DE AULA E INCLUINDO VALORES
+SHOW COLUMNS FROM aula;
+INSERT INTO aula(aula_id, aula_horario, capacidade, modalidade_id, aula_instrutor_resp)
+VALUES('0202', '09:00:00', '35', '03', '274558003');
 
-
-
-#ALTERANDO TABELA DE PLANO DE TREINAMENTO
-ALTER TABLE plano_treinamento COMMENT = 'Tabela de informações do plano de treinamento';
-ALTER TABLE plano_treinamento DROP COLUMN plano_id;
-ALTER TABLE plano_treinamento ADD data_cancelamento date not null;
-ALTER TABLE plano_treinamento MODIFY COLUMN data_criacao_plano datetime not null;
-ALTER TABLE plano_treinamento CHANGE COLUMN descricao_plano descricao_do_plano varchar(55);
-
-
-#ALTERANDO TABELA DE AULAS
-ALTER TABLE aula COMMENT = 'Tabela de informações de aula';
-ALTER TABLE aula ADD aula_dia date not null;
-ALTER TABLE aula MODIFY COLUMN aula_id varchar(20) primary key;
-ALTER TABLE aula CHANGE COLUMN modalidade_id modalidade_da_aula_id int not null;
-ALTER TABLE aula DROP COLUMN aula_horario;
-
-
-
-#ALTERANDO TABELA DE PAGAMENTO
-ALTER TABLE pagamento COMMENT = 'Tabela de informações de pagamento';
-ALTER TABLE pagamento ADD pagamento_cancelamento boolean;
-ALTER TABLE pagamento MODIFY COLUMN pagamento_data datetime primary key;
-ALTER TABLE pagamento CHANGE COLUMN pagamento_status status_do_pagamento int not null;
-ALTER TABLE pagamento DROP COLUMN pagamento_id;
-
-DROP SCHEMA EST_CASO_IV;
+#MOSTRANDO A TABELA DE PAGAMENTO E INCLUINDO VALORES
+SHOW COLUMNS FROM pagamento;
+INSERT INTO pagamento(pagamento_id, pagamento_data, pagamento_valor, pagamento_status, id_do_alun0)
+VALUES('392211', '2024-10-10', '90.00', 'PAGO', '808266051');
