@@ -1,0 +1,14 @@
+# Selecionando o número de FORNECEDORES por cidade
+SELECT FORNEC_CIDADE, COUNT(*) AS TOTAL_FORNEC_CIDADE
+FROM FORNECEDORES
+GROUP BY CIDADES_FORNEC;
+
+# Selecionando as filiais, ordenando por capacidade
+SELECT FILIAL_NOME, email, FILIAL_CAPACIDADE
+FROM FILIAIS
+ORDER BY FILIAL_CAPACIDADE DESC;
+
+
+# selecionando os codigos e a previsao dos pedidos
+SELECT PED_CODIGO, PED_PREVISAO
+FROM PEDIDOS;
