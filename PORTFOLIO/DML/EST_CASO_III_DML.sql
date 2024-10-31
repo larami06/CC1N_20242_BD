@@ -1,59 +1,69 @@
+# MOSTRANDO A TABELA TIPO DE ENDEREÇO E INSERINDO DADOS
+SHOW COLUMNS FROM tipo_endereco;
+INSERT INTO tipo_endereco(codtipo_end, nome_tipoend)
+VALUES('2', 'Casa');
 
-#ALTERANDO EST_CASO_III
-CREATE DATABASE EST_CASO_III;
+# MOSTRANDO A TABELA ENDEREÇOS E INSERINDO DADOS
+SHOW COLUMNS FROM enderecos;
+INSERT INTO enderecos(id_endereco, cep, logradouro, cidade, bairro, complemeto, numero, uf, tipo_end)
+VALUES('90', '28100823', 'Rua Vale Sereno', 'Nova Esperança', 'Montes Claros', 'Casa', '237', '25', '2' );
 
-#ALTERANDO TABELA DE CLIENTES
-ALTER TABLE clientes COMMENT = 'Tabela de informações dos clientes';
-ALTER TABLE clientes ADD cli_datanasc date not null;
-ALTER TABLE clientes DROP COLUMN data_cadastro;
-ALTER TABLE clientes MODIFY COLUMN razaosocial_cli varchar(50) not null;
-ALTER TABLE clientes CHANGE COLUMN ramo_ativ_cli ramo_atividade_cli varchar(45);
+# MOSTRANDO A TABELA RECURSOS ESPECIFICOS E INSERINDO DADOS
+SHOW COLUMNS FROM recursos_espec;
+INSERT INTO recursos_espec(id_re, quantnecess_re, uni_re, tempouso_re, horasmdo_re)
+VALUES('242', '15','Metais', '05:30:02','08:50:00');
 
+# MOSTRANDO A TABELA REGISTRO DE SUPRIMENTOS E INSERINDO DADOS
+SHOW COLUMNS FROM regist_supri;
+INSERT INTO regist_supri(id_rs, data_rs, descricao_rs)
+VALUES('95', '2021-06-12','Materiais Disponíveis');
 
-#ALTERANDO TABELA DE EMPREGADOS
-ALTER TABLE empregados COMMENT = 'Tabela de informações dos empregados';
-ALTER TABLE empregados ADD sobrenome_empg date not null;
-ALTER TABLE empregados DROP COLUMN qualifi_empg;
-ALTER TABLE empregados MODIFY COLUMN razaosocial_cli varchar(15) not null;
-ALTER TABLE empregados CHANGE COLUMN data_adm_empg data_admis_empg varchar(45);
+# MOSTRANDO A TABELA REGISTRO DE MANUNTENÇÃO E INSERINDO DADOS
+SHOW COLUMNS FROM regist_manuntencao;
+INSERT INTO regist_manuntencao(id_manun, data_manunt, desc_manunt)
+VALUES('64', '2023-03-01','Máquina reparada devidamente');
 
+# MOSTRANDO A TABELA CLIENTES E INSERINDO DADOS
+SHOW COLUMNS FROM clientes;
+INSERT INTO clientes(cod_cli, cnpj_cli, razaosocial_cli, ramo_ativ_cli, data_cadastro, tel_cli, pessoacontat_cli, end_cli)
+VALUES('130', '20634700000145', 'Rafael Publicidade e Propaganda ME', 'Publicidade e Propaganda', '2013-05-10', '(14)25637544', 'Rafael Claúdio', '90');
 
-#ALTERANDO TABELA DE EMPRESAS
-ALTER TABLE empresas COMMENT = 'Tabela de informações das empresas';
-ALTER TABLE empresas ADD descricao_empsa text not null;
-ALTER TABLE empresas DROP COLUMN end_empsa;
-ALTER TABLE empresas MODIFY COLUMN razaosocial_empsa varchar(15) not null;
-ALTER TABLE empresas CHANGE COLUMN pessoacontat_empsa pessoacontato_empsa varchar(45) not null;
+# MOSTRANDO A TABELA EMPREGADOS E INSERINDO DADOS
+SHOW COLUMNS FROM empregados;
+INSERT INTO empregados(matricula_empg, nome_empg, cargo_empg, salario_empg, data_adm_empg, tel_empg, qualifi_empg, end_empg)
+VALUES('23432101', 'Emanuel De Souza', 'Engenheiro de Projetos de Produto', '3500.00', '2015-03-02', '(11)99880968', 'Especialista', '101');
 
+# MOSTRANDO A TABELA EMPRESAS E INSERINDO DADOS
+SHOW COLUMNS FROM empresas;
+INSERT INTO empresas(cnpj_empsa, razaosocial_empsa, pessoacontat_empsa, tel_empsa, end_empsa)
+VALUES('505862400', 'Ferragens ME', 'Francisco', '(12)38741672', '309');
 
-#ALTERANDO TABELA DE FORNECEDORES
-ALTER TABLE fornecedores COMMENT = 'Tabela de informações dos fornecedores';
-ALTER TABLE fornecedores ADD descricao_forn text not null;
-ALTER TABLE fornecedores MODIFY COLUMN pessoacontat_forn varchar(40) not null;
-ALTER TABLE fornecedores DROP COLUMN cnpj_forn;
-ALTER TABLE fornecedores CHANGE COLUMN tel_forn telefone_forn varchar(12) not null;
+# MOSTRANDO A TABELA FORNECEDORES E INSERINDO DADOS
+SHOW COLUMNS FROM fornecedores;
+INSERT INTO fornecedores(cnpj_forn, razaosocial_forn, pessoacontat_forn, tel_forn, end_forn)
+VALUES('444774973', 'Telecom Ltda', 'Matheus Benedito', '(13)27861579', '20');
 
-#ALTERANDO TABELA DE ENCOMENDAS
-ALTER TABLE encomenda COMMENT = 'Tabela de informações de encomenda';
-ALTER TABLE encomenda ADD data_fabr_enco date not null;
-ALTER TABLE encomenda DROP COLUMN valor_liqui;
-ALTER TABLE encomenda MODIFY COLUMN data_inclu datetime not null;
-ALTER TABLE encomenda CHANGE COLUMN forma_pag forma_pagamento ENUM('Cartão de Crédito', 'Boleto', 'Transferência Bancária', 'PIX');
+# MOSTRANDO A TABELA ENCOMENDA E INSERINDO DADOS
+SHOW COLUMNS FROM encomenda;
+INSERT INTO encomenda(cod_enco, data_inclu, valor_total, valor_descont, valor_liqui, forma_pag, quant_parcelas)
+VALUES('9937', '2024-08-23', '290.00','50.00', '11.79', 'Boleto', '3');
 
+# MOSTRANDO A TABELA TIPO DE COMPONENTE E INSERINDO DADOS
+SHOW COLUMNS FROM tipo_componente;
+INSERT INTO tipo_componente(cod_identifi, nome_tipocomp)
+VALUES('42', 'Processador (CPU)');
 
-# ALTERANDO TABELA DE TIPO DE COMPONENTES
-ALTER TABLE tipo_componente COMMENT = 'Tabela de tipo de componente';
+# MOSTRANDO A TABELA PRODUTOS E INSERINDO DADOS
+SHOW COLUMNS FROM produtos;
+INSERT INTO produtos(cod_prod, nome_prod, cor_prod, dimens_prod, peso_prod, preco_prod, tempfab_prod, desenho_prod, horasmdo_prod, identificador, recursos, registros_supri)
+VALUES('067', 'Câmera SkyView 4K', 'Preto', '247.60', '500.00','6.400','2024-10-31 10:00:00','Câmera 247.6 mm x 178,5 mm x 5.9 mm','05:00:00','42','242', '95');
 
-#ALTERANDO TABELA DE PRODUTOS
-ALTER TABLE produtos COMMENT = 'Tabela de informações de produtos';
-ALTER TABLE encomenda DROP COLUMN desenho_prod;
-ALTER TABLE encomenda MODIFY COLUMN cor_prod VARCHAR(35) not null;
+# MOSTRANDO A TABELA COMPONENTE E INSERINDO DADOS
+SHOW COLUMNS FROM componente;
+INSERT INTO componente(cod_comp, nome_comp, quantest_comp, uni_comp, precouni_comp, tipo_compo)
+VALUES('293', 'Placa de Rede Wi-Fi', '90', '4', '76.00', '42');
 
-
-#ALTERANDO TABELA DE COMPONENTES
-ALTER TABLE produtos COMMENT = 'Tabela de informações de componentes';
-
-#ALTERANDO TABELA DE MAQUINAS
-ALTER TABLE produtos COMMENT = 'Tabela de informações de maquinas';
-
-drop schema EST_CASO_III;
+# MOSTRANDO A TABELA MAQUINAS E INSERINDO DADOS
+SHOW COLUMNS FROM maquinas;
+INSERT INTO maquinas(id_maq, tempovida_maq, datacompra_maq, data_fimgarant_maq, maqui_manuntencao)
+VALUES('003','2020-01-15','2020-01-01', '2025-01-01', '64');
