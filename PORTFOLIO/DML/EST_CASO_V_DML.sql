@@ -1,43 +1,30 @@
+#MOSTRANDO TABELA DE CLIENTES E INSERINDO VALORES
+SHOW columns FROM clientes;
+INSERT INTO clientes(clientes_cpf, clientes_nome, clientes_data_nasc, clientes_status_fidelidade, clientes_rua, clientes_ruanum,
+clientes_bairro, clientes_referencia, clientes_cidade, clientes_estado, clientes_cep, clientes_pais)
+VALUES('871.759.751-04', 'Antônia Valentina Aurora Teixeira','1977-07-16','PAGO', 'Rua Brasil Novo', '144', 'Tancredo Neves', 'Posto de Gasolina', 'Ribeirão das Neves', 'Minas Gerais', '33937-060', 'Brasil');
 
-# ALTERANDO TABELA DE CLIENTES
-ALTER TABLE clientes COMMENT = 'Tabela de informações de clientes';
-ALTER TABLE clientes ADD clientes_pessoacontato varchar(40) not null;
-ALTER TABLE clientes MODIFY COLUMN clientes_rua varchar(50) not null;
-ALTER TABLE clientes CHANGE COLUMN clientes_ruanum clientes_num_rua int not null;
-ALTER TABLE clientes DROP COLUMN clientes_data_nasc;
+#MOSTRANDO TABELA DE VENDAS E INSERINDO VALORES
+SHOW columns FROM vendas;
+INSERT INTO vendas(vendas_cod, clientes_clientes_cpf)
+VALUES('113', '871.759.751-04');
 
+#MOSTRANDO TABELA DE PRODUTOS E INSERINDO VALORES
+SHOW columns FROM produtos;
+INSERT INTO produtos(produtos_id, produtos_nome, produtos_quant, produtos_preco)
+VALUES('0565', 'Jaqueta Confort+', '100', '190.00');
 
-# ALTERANDO TABELA DE VENDAS
-ALTER TABLE vendas COMMENT = 'Tabela de informações de vendas';
-ALTER TABLE vendas ADD venda_data date not null;
-ALTER TABLE vendas DROP COLUMN vendas_cod;
+#MOSTRANDO TABELA DE FORNECEDORES E INSERINDO VALORES
+SHOW columns FROM fornecedores;
+INSERT INTO fornecedores(fornecedores_id, fornecedores_nome, fornecedores_contato)
+VALUES('09129', 'Compact', '(31)2774-6804');
 
-# ALTERANDO TABELA DE PRODUTOS
-ALTER TABLE produtos COMMENT = 'Tabela de informações de produtos';
-ALTER TABLE produtos ADD produtos_desc text not null;
-ALTER TABLE produtos MODIFY COLUMN produtos_nome varchar(50) not null;
-ALTER TABLE produtos CHANGE COLUMN produtos_quant produtos_quantidade int not null;
-ALTER TABLE produtos DROP COLUMN produtos_preco;
+#MOSTRANDO TABELA VENDAS DE PRODUTOS E INSERINDO VALORES
+SHOW columns FROM vendas_produtos;
+INSERT INTO vendas_produtos(vendas_vendas_cod, produtos_produtos_id, vnd_pdt_quant_vendida, vnd_pdt_valor_venda)
+VALUES('113', '0565', '95', '85.00');
 
-
-# ALTERANDO TABELA DE FORNECEDORES
-ALTER TABLE fornecedores COMMENT = 'Tabela de informações de fornecedores';
-ALTER TABLE fornecedores ADD fornecedores_cep varchar(14) not null;
-ALTER TABLE fornecedores MODIFY COLUMN fornecedores_nome varchar(30) not null;
-ALTER TABLE fornecedores DROP COLUMN fornecedores_contato;
-
-
-# ALTERANDO TABELA DE PAGAMENTOS
-ALTER TABLE pagamentos COMMENT = 'Tabela de informações de pagamentos';
-ALTER TABLE pagamentos MODIFY COLUMN pag_data datetime not null;
-ALTER TABLE pagamentos DROP COLUMN pag_cod;
-
-
-
-# ALTERANDO TABELA DE VENDAS DE PRODUTOS
-ALTER TABLE produtos COMMENT = 'Tabela de informações de vendas de produtos';
-ALTER TABLE produtos CHANGE COLUMN vnd_pdt_quant_vendida venda_prdto_quanti_vendida int not null;
-ALTER TABLE produtos DROP COLUMN produtos_produtos_id;
-
-
-DROP SCHEMA EST_CASO_V;
+#MOSTRANDO TABELA PRODUTOS E FORNECEDORES E INSERINDO VALORES
+SHOW columns FROM produtos_fornecedores;
+INSERT INTO produtos_fornecedores(produtos_produtosid, fornecedores_fornecedores_id)
+VALUES('0565', '09129');
